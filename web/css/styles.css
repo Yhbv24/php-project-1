@@ -9,7 +9,7 @@ body {
 .jumbotron {
   margin-top: 0;
   text-align: center;
-  height: 350px;
+  height: 225px;
   font-size: 5em;
   color: white;
   background-image: url(../img/header_background.jpg);
@@ -17,6 +17,8 @@ body {
 }
 
 button {
+  height: 50px;
+  width: 100px;
   color: #c8d7e3;
   background-color: #e15119;
 }
@@ -29,7 +31,16 @@ button:hover {
   font-size: 1.3em;
 }
 
+h4 {
+  font-size: 2em;
+}
+
+.main_contact_name {
+  list-style: none;
+}
+
 li {
+  font-size: 1.4em;
   list-style: inside;
   text-align: left;
 }

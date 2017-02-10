@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+  <title>Contact List</title>
+</head>
+<body>
+  <h1 class="jumbotron">You Just Added:</h1>
+  <div class="container">
+    <div class="col-sm-12">
+      <h4>Your Newest Contact:</h4>
+      <a href="/"><button type="button" class="btn">Go Home</button></a>
+      {% if new_contact is not empty %}
+      <ul>
+        <li class="main_contact_name"><strong> {{ new_contact.getFullName }} </strong></li>
+          <ul>
+            <li>{{ new_contact.getPhoneNumber }}</li>
+            <li>{{ new_contact.getStreet }}</li>
+            <li>{{ new_contact.getCity}}, {{ new_contact.getState}}, {{ new_contact.getZip}}</li>
+          </ul>
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>
