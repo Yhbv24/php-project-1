@@ -13,7 +13,9 @@
     }
 
     $app->get("/", function() use ($app) {
-        return $app["twig"]->render("index.html.twig");
+        $all_contacts = Contact::showAll();
+
+        return $app["twig"]->render("index.html.twig", array("all_contacts" => $all_contacts));
     });
 
     $app->post("/add_contact", function() use ($app) {
@@ -21,10 +23,6 @@
         $new_contact->saveContact();
 
         return $app["twig"]->render("index.html.twig", array("add_contact" => $new_contact));
-    });
-
-    $app->get("/show_all_contacts", function() use ($app) {
-
     });
 
     return $app;
