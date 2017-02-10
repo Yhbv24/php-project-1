@@ -11,20 +11,37 @@
   <div class="container">
     <h4>Welcome to your Contact List. Clicks the buttons to navigate the site. You can add contacts to your list, and it will keep them for you to look up.</h4><br>
     <div class="row">
-      <div class="col-sm-4">
-        <a href="/view_list"><button type-"button" class="btn">View Contacts</button></a>
+      <div class="col-sm-6">
+          <a href="/add_new_contact"><button type="button" class="btn">Add a Contact</button></a>
       </div>
 
-      <div class="col-sm-4">
-        <a href="/add_new_contact"><button type="button" class="btn">Add a Contact</button></a>
-      </div>
-
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <form action="/delete_all" method="post">
           <button type="submit" class="btn">Clear List</button>
         </form>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <h4>Contact List:</h4>
+        {% if all_contacts is not empty %}
+        {% for contact in all_contacts %}
+        <ul>
+          <li class="main_contact_name"><strong>{{ contact.getFullName }}</strong></li>
+            <ul>
+              <li>{{ contact.getPhoneNumber }}</li>
+              <li>{{ contact.getStreet }}</li>
+              <li>{{ contact.getCity}}, {{ contact.getState}}, {{ contact.getZip}}</li>
+            </ul>
+        </ul>
+        {% endfor %}
+        {% endif %}
+
+        {% if all_contacts is empty %}
+        <p>You don't have any contacts at the moment!</p>
+        {% endif %}
+      </div>
   </div>
 </body>
 </html>

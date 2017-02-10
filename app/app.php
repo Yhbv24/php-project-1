@@ -13,7 +13,9 @@
     }
 
     $app->get("/", function() use ($app) { // This is the home page
-        return $app["twig"]->render("index.html.twig");
+        $all_contacts = Contact::showAll();
+
+        return $app["twig"]->render("index.html.twig", array("all_contacts" => $all_contacts));
     });
 
     $app->get("/add_new_contact", function() use ($app) { // Takes user to form which will allow a contact to be added
@@ -25,12 +27,6 @@
         $new_contact->saveContact();
 
         return $app["twig"]->render("just_added.html.twig", array("new_contact" => $new_contact));
-    });
-
-    $app->get("/view_list", function() use ($app) { // Allows user to see all contacts that have been added
-        $all_contacts = Contact::showAll();
-
-        return $app["twig"]->render("view_list.html.twig", array("all_contacts" => $all_contacts));
     });
 
     $app->post("/delete_all", function() use ($app) { // Deletes all contacts and takes user back to the home page
