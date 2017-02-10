@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>Contact List</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="jumbotron">Your Contact List</h1>
+    <h4>Welcome to your Contact List. Here, you'll find a list of all of the contacts you've added. Feel free to add a contact when you make a new friend.</h4><br>
+    <div class="row">
+      <div class="col-sm-4">
+        <form action="/add_contact" method="post">
+          <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" name="phone_number" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" name="address" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn">Add Contact</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-sm-4">
+        <h5><strong>Your Contact List:</strong></h5>
+      </div>
+
+      <div class="col-sm-4">
+        <h5><strong>Your Newest Contact:</strong></h5>
+        {% if add_contact is not empty %}
+        <ul>
+          <li> {{ add_contact.getFullName }} </li>
+            <ul>
+              <li>{{ add_contact.getPhoneNumber }}</li>
+              <li>{{ add_contact.getAddress }}</li>
+            </ul>
+        </ul>
+        {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

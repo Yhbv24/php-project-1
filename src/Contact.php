@@ -6,10 +6,10 @@
         private $phone_number;
         private $address;
 
-        function __construct()
+        function __construct($first_name, $last_name, $phone_number, $address)
         {
             $this->first_name = $first_name;
-            $thss->last_name = $last_name;
+            $this->last_name = $last_name;
             $this->phone_number = $phone_number;
             $this->address = $address;
         }
@@ -31,7 +31,7 @@
 
         function setPhoneNumber($newPhoneNumber)
         {
-            $this->phone_number = $newPhoneNumber;
+            $this->phone_number = (string) $newPhoneNumber;
         }
 
         function getPhoneNumber()
@@ -41,12 +41,22 @@
 
         function setAddress($newAddress)
         {
-            $this->address = $newAddress;
+            $this->address = (string) $newAddress;
         }
 
         function getAddress()
         {
             return $this->address;
+        }
+
+        function saveContact()
+        {
+            array_push($_SESSION["list_of_contacts"], $this);
+        }
+
+        static function showAll()
+        {
+            return $_SESSION["list_of_contacts"];
         }
     }
 ?>
