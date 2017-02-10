@@ -13,9 +13,11 @@
     }
 
     $app->get("/", function() use ($app) {
-        $all_contacts = Contact::showAll();
+        return $app["twig"]->render("index.html.twig");
+    });
 
-        return $app["twig"]->render("index.html.twig", array("all_contacts" => $all_contacts));
+    $app->get("/add_new_contact", function() use ($app) {
+        return $app["twig"]->render("add_new_contact.html.twig");
     });
 
     $app->post("/add_contact", function() use ($app) {
@@ -23,6 +25,12 @@
         $new_contact->saveContact();
 
         return $app["twig"]->render("index.html.twig", array("add_contact" => $new_contact));
+    });
+
+    $app->get("/view_list", function() use ($app) {
+        $all_contacts = Contact::showAll();
+
+        return $app["twig"]->render("view_list.html.twig", array("all_contacts" => $all_contacts));
     });
 
     $app->post("/delete_all", function() use ($app) {

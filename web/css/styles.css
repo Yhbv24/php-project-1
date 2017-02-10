@@ -3,6 +3,7 @@
 body {
   font-family: 'Dosis', sans-serif;
   background-color: #ccc;
+  text-align: center;
 }
 
 .jumbotron {
@@ -22,6 +23,15 @@ button {
 
 button:hover {
   color: #000;
+}
+
+.contact_list {
+  font-size: 1.3em;
+}
+
+li {
+  list-style: inside;
+  text-align: left;
 }
 
 /***** LINKS *****/

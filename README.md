@@ -20,6 +20,7 @@ A user will be able to enter a contact using a form, which will be saved and add
 | 1 | User enters form information and clicks submit | User is taken to a new page which displays entered information |
 | 2 | Same as Step 1 | Contact information is added to session memory |
 | 3 | User clicks "clear" button | Contact list is removed from memory |
+| 4 | User clicks "show all" button | Entire list of contacts is shown |
 
 ## Instructions
 

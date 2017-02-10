@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+  <title>Contact List</title>
+</head>
+<body>
+  <h1 class="jumbotron">Your Contact List</h1>
+  <div class="container">
+    <h4>Welcome to your Contact List. Here, you'll find a list of all of the contacts you've added. Feel free to add a contact when you make a new friend.</h4>
+    <a href="/"><button type="button" class="btn">Go Home</button></a>
+    <div class="row">
+      <div class="col-sm-12">
+        <h2><strong>Your Contact List:</strong></h2>
+        {% if all_contacts is not empty %}
+        {% for contact in all_contacts %}
+        <ul>
+          {% if contact.getFullName is not empty %}
+          <li><strong>{{ contact.getFullName }}</strong></li>
+          {% endif %}
+            <ul>
+              {% if contact.getPhoneNumber is not empty %}
+              <li>{{ contact.getPhoneNumber }}</li>
+              {% endif %}
+              {% if contact.getStreet is not empty %}
+              <li>{{ contact.getStreet }}</li>
+              {% endif %}
+              <li>{{ contact.getCity}}, {{ contact.getState}}, {{ contact.getZip}}</li>
+            </ul>
+        </ul>
+        {% endfor %}
+        {% endif %}
+
+        {% if all_contacts is empty %}
+        <p>You don't have any contacts at the moment!</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+      <!-- <div class="col-sm-4">
+        <h5><strong>Your Newest Contact:</strong></h5>
+        {% if add_contact is not empty %}
+        <ul>
+          <li> {{ add_contact.getFullName }} </li>
+            <ul>
+              <li>{{ add_contact.getPhoneNumber }}</li>
+              <li>{{ add_contact.getStreet }}</li>
+              <li>{{ add_contact.getCity}}, {{ add_contact.getState}}, {{ add_contact.getZip}}</li>
+            </ul>
+        </ul>
+        {% endif %}
+        </ul>
+      </div> -->
