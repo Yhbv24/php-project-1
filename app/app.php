@@ -19,7 +19,7 @@
     });
 
     $app->post("/add_contact", function() use ($app) {
-        $new_contact = new Contact($_POST["first_name"], $_POST["last_name"], $_POST["phone_number"], $_POST["address"]);
+        $new_contact = new Contact($_POST["first_name"], $_POST["last_name"], $_POST["phone_number"], $_POST["street"], $_POST["city"], $_POST["state"], $_POST["zip"]);
         $new_contact->saveContact();
 
         return $app["twig"]->render("index.html.twig", array("add_contact" => $new_contact));

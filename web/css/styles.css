@@ -1,16 +1,42 @@
+/***** BODY/GENERAL *****/
+
+body {
+  font-family: 'Dosis', sans-serif;
+  background-color: #ccc;
+}
+
+.jumbotron {
+  margin-top: 0;
+  text-align: center;
+  height: 350px;
+  font-size: 5em;
+  color: white;
+  background-image: url(../img/header_background.jpg);
+  box-shadow: 0px 15px 20px #999;
+}
+
+button {
+  color: #c8d7e3;
+  background-color: #e15119;
+}
+
+button:hover {
+  color: #000;
+}
+
 /***** LINKS *****/
 
 a {
   text-decoration: none;
-  color: #333;
+  color: #c8d7e3;
 }
 
 a:visited {
   text-decoration: none;
-  color: #333;
+  color: #c8d7e3;
 }
 
 a:hover {
   text-decoration: none;
-  color: #333;
+  color: #000;
 }

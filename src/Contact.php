@@ -4,14 +4,20 @@
         private $first_name;
         private $last_name;
         private $phone_number;
-        private $address;
+        private $street;
+        private $city;
+        private $state;
+        private $zip;
 
-        function __construct($first_name, $last_name, $phone_number, $address)
+        function __construct($first_name, $last_name, $phone_number, $street, $city, $state, $zip)
         {
             $this->first_name = $first_name;
             $this->last_name = $last_name;
             $this->phone_number = $phone_number;
-            $this->address = $address;
+            $this->street = $street;
+            $this->city = $city;
+            $this->state = $state;
+            $this->zip = $zip;
         }
 
         function setFirstName($newFirstName)
@@ -39,14 +45,44 @@
             return $this->phone_number;
         }
 
-        function setAddress($newAddress)
+        function setStreet($newStreet)
         {
-            $this->address = (string) $newAddress;
+            $this->street = (string) $newStreet;
         }
 
-        function getAddress()
+        function getStreet()
         {
-            return $this->address;
+            return $this->street;
+        }
+
+        function setCity($newCity)
+        {
+            $this->city = (string) $newCity;
+        }
+
+        function getCity()
+        {
+            return $this->city;
+        }
+
+        function setState($newState)
+        {
+            $this->state = (string) $newState;
+        }
+
+        function getState()
+        {
+            return $this->state;
+        }
+
+        function setZip($newZip)
+        {
+            $this->zip = (integer) $newZip;
+        }
+
+        function getZip()
+        {
+            return $this->zip;
         }
 
         function saveContact()
